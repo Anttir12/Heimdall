@@ -1,0 +1,299 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw
+END
+glx_context.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/glx_context.c
+END
+joystick.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/joystick.c
+END
+x11_window.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_window.c
+END
+init.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/init.c
+END
+win32_gamma.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_gamma.c
+END
+cocoa_monitor.m
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_monitor.m
+END
+config.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/config.h
+END
+win32_platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_platform.h
+END
+egl_context.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/egl_context.c
+END
+x11_gamma.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_gamma.c
+END
+nsgl_platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/nsgl_platform.h
+END
+cocoa_joystick.m
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_joystick.m
+END
+x11_unicode.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_unicode.c
+END
+wglext.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/wglext.h
+END
+glxext.h
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/glxext.h
+END
+win32_time.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_time.c
+END
+egl_platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/egl_platform.h
+END
+cocoa_init.m
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_init.m
+END
+nsgl_context.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/nsgl_context.m
+END
+win32_clipboard.c
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_clipboard.c
+END
+gamma.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/gamma.c
+END
+cocoa_gamma.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_gamma.c
+END
+glfw3.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/glfw3.h
+END
+x11_joystick.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_joystick.c
+END
+x11_clipboard.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_clipboard.c
+END
+win32_window.c
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_window.c
+END
+x11_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_init.c
+END
+wgl_context.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/wgl_context.c
+END
+cocoa_platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_platform.h
+END
+time.c
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/time.c
+END
+glfw3native.h
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/glfw3native.h
+END
+clipboard.c
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/clipboard.c
+END
+input.c
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/input.c
+END
+wgl_platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/wgl_platform.h
+END
+cocoa_time.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_time.c
+END
+glx_platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/glx_platform.h
+END
+window.c
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/window.c
+END
+win32_monitor.c
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_monitor.c
+END
+cocoa_clipboard.m
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_clipboard.m
+END
+x11_monitor.c
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_monitor.c
+END
+internal.h
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/internal.h
+END
+win32_joystick.c
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_joystick.c
+END
+x11_platform.h
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_platform.h
+END
+context.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/context.c
+END
+win32_init.c
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/win32_init.c
+END
+cocoa_window.m
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/cocoa_window.m
+END
+x11_time.c
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/x11_time.c
+END
+monitor.c
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/monitor.c
+END
+glext.h
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/glfw/glext.h
+END

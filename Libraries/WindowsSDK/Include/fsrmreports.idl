@@ -1,0 +1,266 @@
+//////////////////////////////////////
+//        Imports
+//
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+import "fsrmenums.idl";
+import "fsrm.idl";
+
+
+//////////////////////////////////////
+//        Forward declarations
+//
+
+interface IFsrmReportManager;
+interface IFsrmReportJob;
+interface IFsrmReport;
+
+
+//////////////////////////////////////
+//        Dispatch IDs
+//
+
+#define FSRM_PROPERTY(x) x | FSRM_DISPID_IS_PROPERTY
+
+// Dispatch ID base of storage report interfaces
+const DISPID FSRM_DISPID_REPORT_MANAGER     = FSRM_DISPID_FEATURE_REPORTS   | 0x100000;
+const DISPID FSRM_DISPID_REPORT_JOB         = FSRM_DISPID_FEATURE_REPORTS   | 0x200000;
+const DISPID FSRM_DISPID_REPORT             = FSRM_DISPID_FEATURE_REPORTS   | 0x300000;
+const DISPID FSRM_DISPID_REPORT_SCHEDULER   = FSRM_DISPID_FEATURE_REPORTS   | 0x400000;
+
+
+//////////////////////////////////////
+//        Interfaces
+//
+
+[
+  odl,
+  uuid(27b899fe-6ffa-4481-a184-d3daade8a02b),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReportManager : IDispatch {
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x01), helpstring("This method is used to enumerate report jobs")]
+    HRESULT EnumReportJobs(
+                        [in, defaultvalue(FsrmEnumOptions_None)] FsrmEnumOptions options,
+                        [out, retval] IFsrmCollection **reportJobs);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x02), helpstring("This method is used to create a new report job")]
+    HRESULT CreateReportJob(
+                        [out, retval] IFsrmReportJob **reportJob);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x03), helpstring("This method is used to get a report job having a specific scheduled task name")]
+    HRESULT GetReportJob(
+                        [in] BSTR taskName,
+                        [out, retval] IFsrmReportJob **reportJob);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x04), helpstring("This method is used to get the output directory of generated reports in the specified context")]
+    HRESULT GetOutputDirectory(
+                        [in] FsrmReportGenerationContext context, 
+                        [out, retval] BSTR *path);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x05), helpstring("This method is used to set the output directory of generated reports in the specified context")]
+    HRESULT SetOutputDirectory(
+                        [in] FsrmReportGenerationContext context, 
+                        [in] BSTR path);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x06), helpstring("This method is used to indicate whether a specified filter name is valid for the specified report type")]
+    HRESULT IsFilterValidForReportType(
+                        [in] FsrmReportType reportType,
+                        [in] FsrmReportFilter filter, 
+                        [out, retval] VARIANT_BOOL *valid);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x07), helpstring("This method is used to get the default value of the specified filter for the specified report type")]
+    HRESULT GetDefaultFilter(
+                        [in] FsrmReportType reportType,
+                        [in] FsrmReportFilter filter, 
+                        [out, retval] VARIANT *filterValue);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x08), helpstring("This method is used to set the default value of the specified filter for the specified report type")]
+    HRESULT SetDefaultFilter(
+                        [in] FsrmReportType reportType,
+                        [in] FsrmReportFilter filter, 
+                        [in] VARIANT filterValue);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x09), helpstring("This method is used to get the default value of the specified limit for the specified report")]
+    HRESULT GetReportSizeLimit(
+                        [in] FsrmReportLimit limit, 
+                        [out, retval] VARIANT *limitValue);
+
+    [id(FSRM_DISPID_REPORT_MANAGER | 0x0A), helpstring("This method is used to set the default value of the specified limit for the specified report")]
+    HRESULT SetReportSizeLimit(
+                        [in] FsrmReportLimit limit, 
+                        [in] VARIANT limitValue);
+
+};
+
+
+[
+  odl,
+  uuid(38e87280-715c-4c7d-a280-ea1651a19fef),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReportJob : IFsrmObject {
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x01)), helpstring("This property is the name of the scheduled task associated with the report job")]
+    HRESULT Task([out, retval] BSTR *taskName);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x01)), helpstring("This property is the name of the scheduled task associated with the report job")]
+    HRESULT Task([in] BSTR taskName);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x02)), helpstring("This property contains the paths on which the reports will run")]
+    HRESULT NamespaceRoots([out, retval] SAFEARRAY(VARIANT) *namespaceRoots);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x02)), helpstring("This property contains the paths on which the reports will run")]
+    HRESULT NamespaceRoots([in] SAFEARRAY(VARIANT) namespaceRoots);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x03)), helpstring("This property contains the formats in which the generate the reports")]
+    HRESULT Formats([out, retval] SAFEARRAY(VARIANT) *formats);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x03)), helpstring("This property contains the formats in which the generate the reports")]
+    HRESULT Formats([in] SAFEARRAY(VARIANT) formats);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x04)), helpstring("This property is the e-mail address to which to send the reports, if any")]
+    HRESULT MailTo([out, retval] BSTR *mailTo);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x04)), helpstring("This property is the e-mail address to which to send the reports, if any")]
+    HRESULT MailTo([in] BSTR mailTo);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x05)), helpstring("This property indicates the run status of the report job")]
+    HRESULT RunningStatus([out, retval] FsrmReportRunningStatus *runningStatus);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x06)), helpstring("This property indicates the last time the report job was run")]
+    HRESULT LastRun([out, retval] DATE *lastRun);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x07)), helpstring("This property indicates the last error that occurred when the report job was last run, if any")]
+    HRESULT LastError([out, retval] BSTR *lastError);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT_JOB | 0x08)), helpstring("This property indicates the directory in which the files were generated when the report job was last run")]
+    HRESULT LastGeneratedInDirectory([out, retval] BSTR *path);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x01), helpstring("This method is used to enumerate reports belonging to the report job")]
+    HRESULT EnumReports([out, retval] IFsrmCollection **reports);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x02), helpstring("This method is used to create a report of the specificied type")]
+    HRESULT CreateReport(
+                        [in] FsrmReportType reportType,
+                        [out, retval] IFsrmReport **report);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x03), helpstring("This method is used to run all the reports in the report job in the specified context")]
+    HRESULT Run([in] FsrmReportGenerationContext context);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x04), helpstring("This method is used to wait for the specified period of time or until all reports in the job are finished running and return whether or not the job is still running")]
+    HRESULT WaitForCompletion(
+                        [in] long waitSeconds,
+                        [out, retval] VARIANT_BOOL *completed);
+
+    [id(FSRM_DISPID_REPORT_JOB | 0x05), helpstring("This method cancels a currently running report job")]
+    HRESULT Cancel();
+
+};
+
+
+[
+  odl,
+  uuid(d8cc81d9-46b8-4fa4-bfa5-4aa9dec9b638),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReport : IDispatch {
+
+    // Properties
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x01)), helpstring("This property is the type of the report")]
+    HRESULT Type([out, retval] FsrmReportType *reportType);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x02)), helpstring("This property is the name of the report")]
+    HRESULT Name([out, retval] BSTR *name);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x02)), helpstring("This property is the name of the report")]
+    HRESULT Name([in] BSTR name);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x03)), helpstring("This property is the description of the report")]
+    HRESULT Description([out, retval] BSTR *description);
+
+    [propput, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x03)), helpstring("This property is the description of the report")]
+    HRESULT Description([in] BSTR description);
+
+
+    [propget, id(FSRM_PROPERTY(FSRM_DISPID_REPORT | 0x04)), helpstring("This property indicates the filename prefixes of the files that were generated by this report when the report was last run")]
+    HRESULT LastGeneratedFileNamePrefix([out, retval] BSTR *prefix);
+
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT | 0x01), helpstring("This method is used to get the value of the specified filter")]
+    HRESULT GetFilter(
+                        [in] FsrmReportFilter filter, 
+                        [out, retval] VARIANT *filterValue);
+
+    [id(FSRM_DISPID_REPORT | 0x02), helpstring("This method is used to set the value of the specified filter")]
+    HRESULT SetFilter(
+                        [in] FsrmReportFilter filter, 
+                        [in] VARIANT filterValue);
+
+    [id(FSRM_DISPID_REPORT | 0x03), helpstring("This method removes the report from the report job")]
+    HRESULT Delete();
+
+};
+
+
+[
+  odl,
+  uuid(6879caf9-6617-4484-8719-71c3d8645f94),
+  version(1.0),
+  dual,
+  oleautomation
+]
+interface IFsrmReportScheduler : IDispatch
+{
+
+    // Methods
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x01), helpstring("This method is used to verify that the array of namespaces exist and are valid, supported namespaces")]
+    HRESULT VerifyNamespaces([in] VARIANT* namespacesSafeArray);
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x02), helpstring("This method is used to create a scheduled task for a report on the local machine or in a cluster")]
+    HRESULT CreateScheduleTask(
+                        [in] BSTR taskName,
+                        [in] VARIANT* namespacesSafeArray,
+                        [in] BSTR serializedTask);
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x03), helpstring("This method is used to modify a scheduled task for a report on the local machine or in a cluster")]
+    HRESULT ModifyScheduleTask(
+                        [in] BSTR taskName,
+                        [in] VARIANT* namespacesSafeArray,
+                        [in] BSTR serializedTask);
+
+    [id(FSRM_DISPID_REPORT_SCHEDULER | 0x04), helpstring("This method is used to delete a scheduled task for a report on the local machine or in a cluster")]
+    HRESULT DeleteScheduleTask([in] BSTR taskName);
+
+};
+
+

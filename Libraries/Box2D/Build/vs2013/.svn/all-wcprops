@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013
+END
+glew.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/glew.vcxproj.filters
+END
+Box2D.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/Box2D.vcxproj.filters
+END
+glfw.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/glfw.vcxproj.filters
+END
+Testbed.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/Testbed.vcxproj
+END
+HelloWorld.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/HelloWorld.vcxproj
+END
+Box2D.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/Box2D.vcxproj
+END
+glew.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/glew.vcxproj
+END
+glfw.vcxproj
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/glfw.vcxproj
+END
+Box2D.sln
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/Box2D.sln
+END
+Testbed.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/Testbed.vcxproj.filters
+END
+HelloWorld.vcxproj.filters
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Build/vs2013/HelloWorld.vcxproj.filters
+END

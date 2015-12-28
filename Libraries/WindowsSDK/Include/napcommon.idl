@@ -1,0 +1,156 @@
+////////////////////////////////////////////////////////////
+//
+// Copyright (c) Microsoft Corporation.
+//
+// SYNOPSIS
+//
+//    IDL source for common interfaces.
+//
+////////////////////////////////////////////////////////////
+
+#ifndef NAPCOMMON_IDL
+#define NAPCOMMON_IDL
+
+import "NapTypes.idl";
+import "unknwn.idl";
+
+
+// NAP plug-in components (such as SHAs and SHVs) must 
+// implement this interface so that the NAP system can 
+// retrieve static administrative-type information 
+// (eg. friendly name, localized strings, etc.)
+// 
+[object, 
+uuid(B475F925-E3F7-414c-8C72-1CEE64B9D8F6), 
+pointer_default(unique)]
+interface INapComponentInfo : IUnknown
+{
+   // Used to get the friendly name, company name,
+   // version info and icon of health clients.
+   //
+   HRESULT
+   GetFriendlyName([out] MessageId* friendlyName) const;
+   HRESULT
+   GetDescription([out] MessageId* description) const;
+   HRESULT
+   GetVendorName([out] MessageId* vendorName) const;
+   HRESULT
+   GetVersion([out] MessageId* version) const;
+
+   // The icon should be localized according to the thread
+   // lang-id.
+   HRESULT
+   GetIcon(
+      [out] CountedString** dllFilePath,
+      [out] UINT32* iconResourceId
+      ) const;
+
+   // Used to convert HRESULT to message id, which can then
+   // be used to retrieve a localized string.
+   // 
+   HRESULT
+   ConvertErrorCodeToMessageId(
+      [in] HRESULT errorCode,
+      [out] MessageId* msgId
+      ) const;
+
+   // Used to get localized strings. Strings should be
+   // localized to the thread's language-id.
+   // 
+   HRESULT
+   GetLocalizedString(
+      [in] MessageId msgId,
+      [out] CountedString** string
+      ) const;
+};
+
+
+// Currently, implemented by the SHVs only.
+//                      
+[object,
+uuid(a9e0af1a-3713-478e-ae03-8edd272d21fa),
+pointer_default(unique)]
+interface INapComponentConfig : IUnknown
+{
+   // Used to determine if the component supports
+   // custom UI.
+   //
+   HRESULT
+   IsUISupported([out] BOOL* isSupported) const;
+
+   // Used to launch the component specific UI
+   // Note:- The call should block until the UI exits
+   //        and any updated config is persisted.
+   // 
+   HRESULT
+   InvokeUI([in, unique] HWND hwndParent) const;
+ 
+   // Used to extract the configuration for
+   // migration purposes
+   // Any versioning information should be part of the 
+   // byte blob
+   //
+   HRESULT
+   GetConfig(
+      [out] UINT16* bCount, 
+      [out, size_is(, *bCount)] BYTE** data
+      ) const;
+
+   // Used to set the configuration
+   // 
+   HRESULT
+   SetConfig(
+      [in] UINT16 bCount, 
+      [in, size_is(bCount)] BYTE* data
+      );
+};
+
+// Currently implemented by SHVs only.
+// Used to manage remote configuration of SHVs
+// 
+[object,
+uuid(47cbdb9e-1972-4f5e-bd3c-5eb6230614b5),
+pointer_default(unique)]
+interface INapComponentConfig2 : INapComponentConfig
+{
+
+   // If neither of InvokeUIForMachine and InvokeUIFromConfigBlob is
+   // implemented, remote configuration of the SHV is not possible
+   //
+   HRESULT 
+   IsRemoteConfigSupported(
+      [out] BOOL* isSupported, 
+      [out] UINT8* remoteConfigType
+      );
+
+   // Implemented by SHVs that want to manage the remote configuration
+   // directly on the machine specified
+   //
+   HRESULT 
+   InvokeUIForMachine(
+      [in, unique] HWND hwndParent,
+      [in, unique] CountedString* machineName
+      );
+
+   // Implemented by SHVs that want to load the configuration on the
+   // remote machine in memory and display UI that can manipulate 
+   // the data in memory. The outData parameter is used to return the 
+   // modified data, and the flag fConfigChanged indicates if any 
+   // changes were made in the configuration.
+   // The data passed in is the exported configuration on the remote 
+   // machine and the data passed out will be imported on the remote
+   // machine
+   //
+   HRESULT 
+   InvokeUIFromConfigBlob(
+      [in, unique] HWND hwndParent,
+      [in] UINT16 inbCount,
+      [in, size_is(inbCount)] BYTE* inData, 
+      [out] UINT16* outbCount, 
+      [out, size_is(, *outbCount)] BYTE** outdata, 
+      [out] BOOL *fConfigChanged
+      );
+};
+
+#endif // NAPCOMMON_IDL
+

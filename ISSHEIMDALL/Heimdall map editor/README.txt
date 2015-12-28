@@ -1,0 +1,3 @@
+REQUIRES PYTHON 3.x TO WORK AND PYGAME!
+
+TODO: BUILD EXE FROM THIS (cxfreeze or something?)

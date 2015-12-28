@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/svn/!svn/ver/311/tags/v2.3.1/Box2D
+END
+License.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/License.txt
+END
+Changes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Changes.txt
+END
+premake4.lua
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/premake4.lua
+END
+Building.txt
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Building.txt
+END
+Readme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/Readme.txt
+END
+CMakeLists.txt
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/!svn/ver/311/tags/v2.3.1/Box2D/CMakeLists.txt
+END

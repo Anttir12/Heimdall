@@ -1,0 +1,95 @@
+#include <SDL.h>
+#include <SDL_mixer.h>
+#include <stdio.h>
+#include <string>
+#include "Audio.h"
+#include "Timer.h"
+
+using namespace std;
+std::vector<Mix_Music*>Audio::songs;
+
+Mix_Music *gMusic = NULL;
+Mix_Chunk *gBullet1 = NULL;
+Mix_Chunk *gOwnEngine = NULL;
+Mix_Chunk *gExplosion = NULL;
+
+Audio::Audio()
+{
+	start = Timer::get().getTime();
+}
+Audio :: ~Audio()
+{
+
+}
+int Audio :: init()
+{
+	Mix_VolumeMusic(8);
+	Mix_Volume(2, 8);
+	Mix_Volume(3, 3);
+	return 0;
+}
+void Audio::playMusic(int id){
+	if (id == NULL)
+		loadMusic();
+	//Mix_PlayMusic(gMusic, -1);
+	
+}
+
+void Audio::playChunk(int channel)
+{
+	if (gBullet1 == NULL)
+		loadBulletSound1();
+	Mix_PlayChannel(channel, gBullet1, 0);
+}
+
+Mix_Music* Audio::loadMusic(const char* file)
+{
+	Mix_Music *song;
+	bool success = true;
+	SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		printf("SDL_Mixer could not initialize! SDL_Mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+	song = Mix_LoadMUS(file);
+	if (song == NULL)
+	{
+		printf("Failed to load music! SDL_mixer Error %s\n", Mix_GetError());
+	}
+	return song;
+}
+
+Mix_Chunk* Audio::loadChunk(const char* file)
+{
+	Mix_Chunk *name;
+	bool success = true;
+	//SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO);
+
+	if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+	{
+		printf("SDL_Mixer could not initialize! SDL_Mixer Error: %s\n", Mix_GetError());
+		success = false;
+	}
+
+	name = Mix_LoadWAV(file);  //pitää olla 16-bit syvyydeltään
+	if (name == NULL)
+	{
+		printf("Failed to load Cannon1 Sound! SDL_mixer Error %s\n", Mix_GetError());
+	}
+	return name;
+}
+
+
+void Audio :: close(){
+	Mix_FreeMusic(gMusic);
+	Mix_FreeChunk(gBullet1);
+	Mix_FreeChunk(gOwnEngine);
+	gBullet1 = NULL;
+	gMusic = NULL;
+	gOwnEngine = NULL;
+	
+	Mix_Quit();
+}
+
